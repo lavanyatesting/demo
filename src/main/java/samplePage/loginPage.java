@@ -1,9 +1,6 @@
 package samplePage;
 
-import java.util.Random;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -26,7 +23,7 @@ public class loginPage extends pages {
 		System.out.println("Demo site is opened");
 		
 		/* Clicking Login Button */
-		WebElement loginBtn = driver.findElement(By.xpath("//button[text()='Login']"));
+		WebElement loginBtn = driver.findElement(By.xpath("//a[text()='Login']"));
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		wait.until(ExpectedConditions.visibilityOf(loginBtn));
 		System.out.println("Login btn is visible");
@@ -36,6 +33,7 @@ public class loginPage extends pages {
 
 		
 		/* Entering email address for login */
+		driver.navigate().refresh();
 		WebElement emailLabel = driver.findElement(By.xpath("//label[contains(text(),'Email')]"));
 		WebElement emailInput = driver.findElement(By.xpath("//input[@type='text'][@name='_email']"));
 		Actions action = new Actions(driver);
@@ -50,14 +48,14 @@ public class loginPage extends pages {
 			emailInput.sendKeys("lavanya.poorni@gmail.com");
 			System.out.println("Email is entered");
 			
-			
+		}
 			/* Entering password for login */
-			WebElement pswdLabel = driver.findElement(By.xpath("//label[contains(text(),'Email')]"));
-			WebElement pswdInput = driver.findElement(By.xpath("//input[@type='text'][@name='_email']"));
+			WebElement pswdLabel = driver.findElement(By.xpath("//label[contains(text(),'Password')]"));
+			WebElement pswdInput = driver.findElement(By.xpath("//input[@type='password'][@name='_password']"));
 			if (pswdLabel.isDisplayed()) {
 				wait.until(ExpectedConditions.elementToBeClickable(pswdLabel));
-				action.moveToElement(pswdLabel).click().perform();
-				pswdInput.isEnabled();
+				action.moveToElement(pswdLabel);
+				action.click(pswdLabel).perform();
 				pswdInput.sendKeys("test@123");
 				System.out.println("Password is entered");
 			} else {
@@ -65,7 +63,7 @@ public class loginPage extends pages {
 				pswdInput.sendKeys("test@123");
 				System.out.println("Password is entered");
 			}
-		}
+		
 		
 		WebElement login = driver.findElement(By.xpath("//button[@type='submit'][text()='Log In ']"));
 		wait.until(ExpectedConditions.visibilityOf(login));
@@ -73,8 +71,13 @@ public class loginPage extends pages {
 			login.click();
 			System.out.println("Login is successful");
 			
+			driver.switchTo().window(driver.getWindowHandles().iterator().next());
+			WebElement modalWindow = driver.findElement(By.xpath("//div[@class='modal--content']"));
+			WebElement skipIt = modalWindow.findElement(By.xpath("//a[text()='Skip it']"));
+			action.moveToElement(skipIt);
+			action.click(skipIt).perform();
+			System.out.println("Pop-up handled");
 			
-	
 		WebElement userProf = driver.findElement(By.xpath("//div[@class='user-menu']"));
 		wait.until(ExpectedConditions.visibilityOf(userProf));
 		wait.until(ExpectedConditions.elementToBeClickable(userProf));
@@ -85,10 +88,9 @@ public class loginPage extends pages {
 		wait.until(ExpectedConditions.elementToBeClickable(general));
 		general.click();
 			System.out.println("User profile expanded and General is clicked");
-			
+		}		
 			
 			
 		
 		
 	}		
-}
