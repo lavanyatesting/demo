@@ -66,5 +66,29 @@ public class loginPage extends pages {
 				System.out.println("Password is entered");
 			}
 		}
-}
+		
+		WebElement login = driver.findElement(By.xpath("//button[@type='submit'][text()='Log In ']"));
+		wait.until(ExpectedConditions.visibilityOf(login));
+		wait.until(ExpectedConditions.elementToBeClickable(login));
+			login.click();
+			System.out.println("Login is successful");
+			
+			
+	
+		WebElement userProf = driver.findElement(By.xpath("//div[@class='user-menu']"));
+		wait.until(ExpectedConditions.visibilityOf(userProf));
+		wait.until(ExpectedConditions.elementToBeClickable(userProf));
+		userProf.click();
+		
+		WebElement general = driver.findElement(By.xpath("//a[contains(text(),'General')]"));
+		wait.until(ExpectedConditions.visibilityOf(general));
+		wait.until(ExpectedConditions.elementToBeClickable(general));
+		general.click();
+			System.out.println("User profile expanded and General is clicked");
+			
+			
+			
+		
+		
+	}		
 }
