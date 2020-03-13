@@ -1,27 +1,32 @@
 package samplePage;
 
-import org.openqa.selenium.By;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import static samplePage.envVariables.driver;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 public class loginPage extends pages {
-	//static WebDriver driver;
+	
+//	@FindBy(xpath="//a[text()='Login']") private static WebElement loginBtn;
+//	@FindBy(xpath="//label[contains(text(),'Email')]") private static WebElement emailLabel;
+//	@FindBy(xpath="//input[@type='text'][@name='_email']")  private static WebElement emailInput;
+	
+	
 	
 	public static void loginCheck() throws Throwable {
+		
 		System.setProperty("webdriver.chrome.driver","./src/test/resources/DriverFiles/chromedriver.exe");
-		//WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		System.out.println("Chrome is launched");
 		String url = "https://demo.saloodo.com";
 		driver.get(url);
 
 		System.out.println("Demo site is opened");
+		
 		
 		/* Clicking Login Button */
 		WebElement loginBtn = driver.findElement(By.xpath("//a[text()='Login']"));
@@ -74,8 +79,10 @@ public class loginPage extends pages {
 			
 			driver.switchTo().window(driver.getWindowHandles().iterator().next());
 			System.out.println("Switched to modal ");
-			driver.navigate().refresh();
-			WebElement modalWindow = driver.findElement(By.xpath("//div[@class='modal new-modal modal']"));
+			driver.switchTo().activeElement();
+			WebElement modalWindow = driver.findElement(By.xpath("//div[@class='modal--content']"));
+			driver.switchTo().activeElement();
+			wait.until(ExpectedConditions.visibilityOf(modalWindow));
 			WebElement skipIt = modalWindow.findElement(By.xpath("//a[text()='Skip it']"));
 			action.moveToElement(skipIt);
 			action.click(skipIt).perform();
@@ -91,9 +98,14 @@ public class loginPage extends pages {
 		wait.until(ExpectedConditions.elementToBeClickable(general));
 		general.click();
 			System.out.println("User profile expanded and General is clicked");
-		}		
-			
-			
+			driver.switchTo().defaultContent();
+	WebElement companyDetailsEdit = driver.findElement(By.xpath("(//body//div[@id='profile']//div[@class='container main-wrapper']//div[@class='profile']/div[2]//button[@class='editBtn'][text()='Edit']"));	
+	driver.switchTo().defaultContent();
+	wait.until(ExpectedConditions.visibilityOf(companyDetailsEdit));
+	wait.until(ExpectedConditions.elementToBeClickable(companyDetailsEdit));
+	action.moveToElement(companyDetailsEdit);
+	companyDetailsEdit.click();
+		System.out.println("Company edit button is clicked");
+	}	
 		
-		
-	}		
+}
