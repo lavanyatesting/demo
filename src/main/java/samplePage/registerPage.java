@@ -15,8 +15,7 @@ public class registerPage extends pages {
 	static WebDriver driver;
 
 	public static void registerCompany() throws Throwable {
-		System.setProperty("webdriver.chrome.driver",
-				"C:/Users/koner/OneDrive/Desktop/chromedriver_win32/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","./src/test/resources/DriverFiles/chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		System.out.println("Chrome is launched");

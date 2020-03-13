@@ -1,20 +1,21 @@
 package samplePage;
 
 import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import static samplePage.envVariables.driver;
 
 public class loginPage extends pages {
-	static WebDriver driver;
+	//static WebDriver driver;
 	
 	public static void loginCheck() throws Throwable {
-		System.setProperty("webdriver.chrome.driver",
-				"C:/Users/koner/OneDrive/Desktop/chromedriver_win32/chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver","./src/test/resources/DriverFiles/chromedriver.exe");
+		//WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		System.out.println("Chrome is launched");
 		String url = "https://demo.saloodo.com";
@@ -72,7 +73,9 @@ public class loginPage extends pages {
 			System.out.println("Login is successful");
 			
 			driver.switchTo().window(driver.getWindowHandles().iterator().next());
-			WebElement modalWindow = driver.findElement(By.xpath("//div[@class='modal--content']"));
+			System.out.println("Switched to modal ");
+			driver.navigate().refresh();
+			WebElement modalWindow = driver.findElement(By.xpath("//div[@class='modal new-modal modal']"));
 			WebElement skipIt = modalWindow.findElement(By.xpath("//a[text()='Skip it']"));
 			action.moveToElement(skipIt);
 			action.click(skipIt).perform();
