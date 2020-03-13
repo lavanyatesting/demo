@@ -1,6 +1,10 @@
 package samplePage;
 
 import java.util.Random;
+import static samplePage.envVariables.action;
+import static samplePage.envVariables.driver;
+import static samplePage.envVariables.jse;
+import static samplePage.envVariables.wait;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -15,12 +19,12 @@ public class registerPage extends pages {
 	//static WebDriver driver;
 
 	public static void registerCompany() throws Throwable {
-		System.setProperty("webdriver.chrome.driver","./src/test/resources/DriverFiles/chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+//		System.setProperty("webdriver.chrome.driver","./src/test/resources/DriverFiles/chromedriver.exe");
+//		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		System.out.println("Chrome is launched");
-		String url = "https://demo.saloodo.com";
-		driver.get(url);
+//		String url = "https://demo.saloodo.com";
+//		driver.get(url);
 
 		System.out.println("Demo site is opened");
 		Thread.sleep(100);
@@ -146,6 +150,6 @@ public class registerPage extends pages {
 		}
 		System.out.println("Account is created");
 		driver.navigate().refresh();
-		driver.quit();
+		
 	}
 }

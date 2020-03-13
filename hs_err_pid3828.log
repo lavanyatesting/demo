@@ -1,0 +1,181 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 134217728 bytes for Failed to commit area from 0x0000000081c00000 to 0x0000000089c00000 of length 134217728.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (t:/workspace/open/src/hotspot/os/windows/os_windows.cpp:3221), pid=3828, tid=5260
+#
+# JRE version:  (10.0.1+10) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (10.0.1+10, mixed mode, aot, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=Cp1252 cucumber.api.cli.Main D:/Eclipse/Proj1/demo/src/test/resources/Features/login.feature --glue classpath: --plugin pretty --monochrome
+
+Host: Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz, 8 cores, 7G,  Windows 10 , 64 bit Build 18362 (10.0.18362.329)
+Time: Fri Mar 13 16:54:15 2020 India Standard Time elapsed time: 0 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000022db01c6800):  JavaThread "Unknown thread" [_thread_in_vm, id=5260, stack(0x0000005d84a00000,0x0000005d84b00000)]
+
+Stack: [0x0000005d84a00000,0x0000005d84b00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x5a0369]
+V  [jvm.dll+0x6bcf81]
+V  [jvm.dll+0x6be176]
+V  [jvm.dll+0x6be803]
+V  [jvm.dll+0x234998]
+V  [jvm.dll+0x59dc74]
+V  [jvm.dll+0x592ab5]
+V  [jvm.dll+0x2f625b]
+V  [jvm.dll+0x2f61c5]
+V  [jvm.dll+0x2f60a2]
+V  [jvm.dll+0x2f8286]
+V  [jvm.dll+0x3440d3]
+V  [jvm.dll+0x3447e6]
+V  [jvm.dll+0x3441d3]
+V  [jvm.dll+0x2c43b8]
+V  [jvm.dll+0x2c5501]
+V  [jvm.dll+0x69d33b]
+V  [jvm.dll+0x69eb5c]
+V  [jvm.dll+0x351849]
+V  [jvm.dll+0x6859c2]
+V  [jvm.dll+0x3ba0a3]
+V  [jvm.dll+0x3bc201]
+C  [javaw.exe+0x3541]
+C  [javaw.exe+0xe1cf]
+C  [javaw.exe+0xe376]
+C  [KERNEL32.DLL+0x17bd4]
+C  [ntdll.dll+0x6ced1]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000022db004add0, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000022db01e0800 GCTaskThread "GC Thread#0" [stack: 0x0000005d84b00000,0x0000005d84c00000] [id=6356]
+  0x0000022db01e2000 GCTaskThread "GC Thread#1" [stack: 0x0000005d84c00000,0x0000005d84d00000] [id=8804]
+  0x0000022db01ea000 GCTaskThread "GC Thread#2" [stack: 0x0000005d84d00000,0x0000005d84e00000] [id=6688]
+  0x0000022db01eb800 GCTaskThread "GC Thread#3" [stack: 0x0000005d84e00000,0x0000005d84f00000] [id=5808]
+  0x0000022db01ee800 GCTaskThread "GC Thread#4" [stack: 0x0000005d84f00000,0x0000005d85000000] [id=5608]
+  0x0000022db01f0000 GCTaskThread "GC Thread#5" [stack: 0x0000005d85000000,0x0000005d85100000] [id=5220]
+  0x0000022db01f1800 GCTaskThread "GC Thread#6" [stack: 0x0000005d85100000,0x0000005d85200000] [id=9472]
+  0x0000022db01f3000 GCTaskThread "GC Thread#7" [stack: 0x0000005d85200000,0x0000005d85300000] [id=8124]
+  0x0000022db025f800 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000005d85300000,0x0000005d85400000] [id=12912]
+  0x0000022db0262800 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000005d85400000,0x0000005d85500000] [id=4160]
+  0x0000022db026b800 ConcurrentGCThread "G1 Conc#1" [stack: 0x0000005d85500000,0x0000005d85600000] [id=1488]
+
+[error occurred during error reporting (printing all threads), id 0xe0000002]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000022db01c4da0] Heap_lock - owner thread: 0x0000022db01c6800
+
+Heap address: 0x0000000081c00000, size: 2020 MB, Compressed Oops mode: Non-zero based: 0x0000000081c00000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff7b8000000 - 0x00007ff7b803e000 	C:\Program Files\Java\jre-10.0.1\bin\javaw.exe
+0x00007ffc82600000 - 0x00007ffc827f0000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffc80be0000 - 0x00007ffc80c92000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffc80060000 - 0x00007ffc80303000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffc822c0000 - 0x00007ffc82363000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffc818f0000 - 0x00007ffc8198e000 	C:\Windows\System32\msvcrt.dll
+0x00007ffc806c0000 - 0x00007ffc80757000 	C:\Windows\System32\sechost.dll
+0x00007ffc80da0000 - 0x00007ffc80ec0000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffc816a0000 - 0x00007ffc81834000 	C:\Windows\System32\USER32.dll
+0x00007ffc7f6e0000 - 0x00007ffc7f701000 	C:\Windows\System32\win32u.dll
+0x00007ffc824e0000 - 0x00007ffc82506000 	C:\Windows\System32\GDI32.dll
+0x00007ffc80310000 - 0x00007ffc804a4000 	C:\Windows\System32\gdi32full.dll
+0x00007ffc804d0000 - 0x00007ffc8056e000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffc7f5e0000 - 0x00007ffc7f6da000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffc7e790000 - 0x00007ffc7ea15000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.719_none_e6c7b883130c6729\COMCTL32.dll
+0x00007ffc7a280000 - 0x00007ffc7a28a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffc80840000 - 0x00007ffc80b76000 	C:\Windows\System32\combase.dll
+0x00007ffc7f860000 - 0x00007ffc7f8e0000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffc80d70000 - 0x00007ffc80d9e000 	C:\Windows\System32\IMM32.DLL
+0x00007ffc658d0000 - 0x00007ffc659bf000 	C:\Program Files\Java\jre-10.0.1\bin\msvcr120.dll
+0x00007ffc657e0000 - 0x00007ffc65886000 	C:\Program Files\Java\jre-10.0.1\bin\msvcp120.dll
+0x0000000052650000 - 0x00000000530c0000 	C:\Program Files\Java\jre-10.0.1\bin\server\jvm.dll
+0x00007ffc806b0000 - 0x00007ffc806b8000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffc7ec10000 - 0x00007ffc7ec19000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffc81990000 - 0x00007ffc819ff000 	C:\Windows\System32\WS2_32.dll
+0x00007ffc7c100000 - 0x00007ffc7c124000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffc7ba10000 - 0x00007ffc7ba3d000 	C:\Windows\SYSTEM32\winmmbase.dll
+0x00007ffc7f590000 - 0x00007ffc7f5da000 	C:\Windows\System32\cfgmgr32.dll
+0x00007ffc7ec00000 - 0x00007ffc7ec0f000 	C:\Program Files\Java\jre-10.0.1\bin\verify.dll
+0x00007ffc7efe0000 - 0x00007ffc7f1d4000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffc7ebc0000 - 0x00007ffc7ebea000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffc61e10000 - 0x00007ffc61e37000 	C:\Program Files\Java\jre-10.0.1\bin\java.dll
+0x00007ffc7b020000 - 0x00007ffc7b036000 	C:\Program Files\Java\jre-10.0.1\bin\zip.dll
+0x00007ffc7cb40000 - 0x00007ffc7cb4a000 	C:\Program Files\Java\jre-10.0.1\bin\jimage.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jre-10.0.1\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.719_none_e6c7b883130c6729;C:\Program Files\Java\jre-10.0.1\bin\server
+
+VM Arguments:
+jvm_args: -Dfile.encoding=Cp1252 
+java_command: cucumber.api.cli.Main D:/Eclipse/Proj1/demo/src/test/resources/Features/login.feature --glue classpath: --plugin pretty --monochrome
+java_class_path (initial): C:\Users\koner\git\demo\target\classes;C:\Users\koner\git\demo\target\test-classes;C:\Users\koner\.m2\repository\io\cucumber\cucumber-junit\5.4.1\cucumber-junit-5.4.1.jar;C:\Users\koner\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\koner\.m2\repository\io\cucumber\cucumber-core\5.4.2\cucumber-core-5.4.2.jar;C:\Users\koner\.m2\repository\io\cucumber\cucumber-gherkin\5.4.2\cucumber-gherkin-5.4.2.jar;C:\Users\koner\.m2\repository\io\cucumber\cucumber-gherkin-vintage\5.4.2\cucumber-gherkin-vintage-5.4.2.jar;C:\Users\koner\.m2\repository\io\cucumber\tag-expressions\2.0.4\tag-expressions-2.0.4.jar;C:\Users\koner\.m2\repository\io\cucumber\cucumber-expressions\8.3.1\cucumber-expressions-8.3.1.jar;C:\Users\koner\.m2\repository\io\cucumber\datatable\3.3.0\datatable-3.3.0.jar;C:\Users\koner\.m2\repository\io\cucumber\cucumber-plugin\5.4.2\cucumber-plugin-5.4.2.jar;C:\Users\koner\.m2\repository\io\cucumber\docstring\5.4.2\docstring-5.4.2.jar;C:\Users\koner\.m2\repository\io\cucumber\cucumber-testng\5.4.2\cucumber-testng-5.4.2.jar;C:\Users\koner\.m2\repository\org\testng\testng\7.1.0\testng-7.1.0.jar;C:\Users\koner\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;C:\Users\koner\.m2\repository\com\google\inject\guice\4.1.0\guice-4.1.0-no_aop.jar;C:\Users\koner\.m2\repository\javax\inject\javax.inject\1\javax.inject-1.jar;C:\Users\koner\.m2\repository\aopalliance\aopalliance\1.0\aopalliance-1.0.jar;C:\Users\koner\.m2\repository\org\yaml\snakeyaml\1.21\snakeyaml-1.21.jar;C:\Users\koner\.m2\repository\io\cucumber\cucumber-java\5.4.2\cucumber-java-5.4.2.jar;C:\Users\koner\.m2\repository\io\cucumber\cucumber-picocontainer\5.4.2\cucumber-picocontainer-5.4.2.jar;C:\Users\koner\.m2\repository\org\picocontainer\picocontainer\2.15\picocontainer-2.15.jar;C:\Users\koner\.m2\repository\junit\junit\4.13\junit-4.13.jar;C:\Users\koner\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\ko
+Launcher Type: SUN_STANDARD
+
+Logging:
+Log output configuration:
+#0: stdout all=warning uptime,level,tags
+#1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Users\koner\AppData\Local\Microsoft\WindowsApps;
+USERNAME=koner
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 18362 (10.0.18362.329)
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 158 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma
+
+Memory: 4k page, physical 8270668k(1018872k free), swap 27859016k(115876k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (10.0.1+10) for windows-amd64 JRE (10.0.1+10), built on Mar 27 2018 02:27:48 by "mach5one" with MS VC++ 12.0 (VS2013)
+
+END.
