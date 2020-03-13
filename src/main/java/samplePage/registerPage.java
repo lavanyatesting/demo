@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class registerPage extends pages {
-	static WebDriver driver;
+	//static WebDriver driver;
 
 	public static void registerCompany() throws Throwable {
 		System.setProperty("webdriver.chrome.driver","./src/test/resources/DriverFiles/chromedriver.exe");
